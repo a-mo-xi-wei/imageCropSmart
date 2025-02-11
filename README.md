@@ -50,4 +50,30 @@ Any Case : you can run the code in `./smartcrop/_init_.py`
     ```
     smartcrop -W 400 -H 300 -i input2.jpg -o output2.jpg
     ```
-    ![output2.jpg](https://raw.githubusercontent.com/fizzday/imageCropSmart/master/smartcrop/output2.jpg) 
+    ![output2.jpg](https://raw.githubusercontent.com/fizzday/imageCropSmart/master/smartcrop/output2.jpg)
+## exampleCode
+    ```python
+import smartcrop
+import os
+
+src_dir = "./downloaded_images"
+img_output_dir = "output"  # 存放裁剪后的图片的文件夹
+img_width = 200
+img_height = 200
+
+# 创建存放输出图片的文件夹（如果不存在）
+os.makedirs(img_output_dir , exist_ok = True)
+
+# 遍历 src_dir 中的所有图片文件
+for img_file in os.listdir(src_dir) :
+    # 只处理图片文件，比如根据文件扩展名来过滤
+    if img_file.lower().endswith(('.jpg' , '.jpeg' , '.png' , '.bmp')) :
+        img_input = os.path.join(src_dir , img_file)
+        img_output = os.path.join(img_output_dir , img_file)
+
+        # 调用 smartcrop 函数裁剪图片
+        smartcrop.smart_crop(img_input , img_width , img_height , img_output , None)
+        print(f"裁剪完成: {img_input} -> {img_output}")
+
+    ```
+
