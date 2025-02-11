@@ -1,24 +1,22 @@
 # image smart crop(图片智能裁剪)  
 
-## description
+## 描述
 
-Smart crops images uisng OpenCV, forked from `epixelic/python-smart-crop`, and improve more
+使用 OpenCV 智能裁剪图像, 源自 `epixelic/python-smart-crop`,并进行了更多改进。
 
-Uses the algorithms described in https://github.com/thumbor/thumbor/wiki/Detection-algorithms but actually combining both methods. We try to detect faces on the image, then, in any case we detect features. We then combine both results with different weights, so face detection is, in this case 3,33 times stronger than feature detection.
+使用了https://github.com/thumbor/thumbor/wiki/Detection-algorithms 中描述的算法，但实际上结合了两种方法。我们尝试在图像上检测人脸，然后在任何情况下都检测特征。然后我们将两种结果以不同的权重结合起来，因此在这种情况下，人脸检测比特征检测强3.33倍。
 
-## Installing
+## 安装
 
-Requires python-opencv, install the dependency with `pip install python-opencv`
+需要python-opencv，使用 `pip install python-opencv`安装依赖项
 
-Install the command using PIP: `pip install git+https://github.com/fizzday/imageCropSmart`
-
-Tested on Debian 8 and Ubuntu WSL and mac 10.13.1
+使用PIP安装命令: `pip install git+https://github.com/fizzday/imageCropSmart`
 
 ## Usage
 - #### *command line*
-Usage: `smartcrop -W 640 -H 360 -i input.jpg -o output.jpg`
+用法： `smartcrop -W 640 -H 360 -i input.jpg -o output.jpg`
 
-See `smartcrop --help` 
+请参阅 `smartcrop --help` 
 
 - #### *python source code*  
 ```python
@@ -32,7 +30,7 @@ img_height = 300
 smartcrop.smart_crop(img_input, img_width, img_height, img_output, None)
 ``` 
 
-Any Case : you can run the code in `./smartcrop/_init_.py`
+任何情况：您可以在`./smartcrop/_init_.py`中运行代码 
 
 
 ## example1
@@ -52,7 +50,7 @@ Any Case : you can run the code in `./smartcrop/_init_.py`
     ```
     ![output2.jpg](https://raw.githubusercontent.com/fizzday/imageCropSmart/master/smartcrop/output2.jpg)
 ## exampleCode
-    ```python
+```python
 import smartcrop
 import os
 
@@ -75,5 +73,5 @@ for img_file in os.listdir(src_dir) :
         smartcrop.smart_crop(img_input , img_width , img_height , img_output , None)
         print(f"裁剪完成: {img_input} -> {img_output}")
 
-    ```
+```
 
